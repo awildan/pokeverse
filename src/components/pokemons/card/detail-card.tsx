@@ -26,12 +26,12 @@ const DetailCard = ({
 }) => {
   return (
     <Card className={cn(className)}>
-      <CardHeader className="p-3">
+      <CardHeader className="p-4 xl:pb-10">
         <CardTitle className="text-muted-foreground text-lg font-semibold">
           #{data.id}
         </CardTitle>
       </CardHeader>
-      <CardContent className="flex flex-row gap-10 flex-wrap items-start">
+      <CardContent className="flex flex-row gap:10 lg:gap-4 flex-wrap items-center xl:pt-6">
         <Image
           src={
             data.pokemon_v2_pokemonsprites[0].image_dream_world ||
@@ -87,7 +87,7 @@ const DetailCard = ({
           </Accordion>
         </div>
       </CardContent>
-      <CardFooter className="flex flex-col gap-2 items-start">
+      <CardFooter className="flex flex-col gap-2 items-start xl:pt-6">
         <div className="flex gap-1 items-center">
           <h2 className="capitalize font-bold text-xl md:text-3xl">
             {data.name}

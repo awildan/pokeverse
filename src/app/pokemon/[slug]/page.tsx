@@ -1,6 +1,3 @@
-// "use client";
-
-// import { useQuery } from "@apollo/client";
 import React, { Suspense } from "react";
 import {
   DetailCard,
@@ -23,12 +20,6 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     },
   });
 
-  // const { loading, error, data } = useQuery(GET_POKEMON_DETAIL, {
-  //   variables: {
-  //     name: params.slug,
-  //   },
-  // });
-
   if (loading)
     return (
       <div className="container">
@@ -44,10 +35,10 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <main className="container">
-      <section className="flex w-full flex-wrap gap-4 md:gap-0 justify-center items-end">
+      <section className="flex w-full flex-wrap gap-4 md:gap-0 justify-center items-center">
         <DetailCard
           data={data?.pokemon_v2_pokemon[0]}
-          className="w-full md:w-3/5"
+          className="w-full md:w-3/5 h-auto xl:min-h-[500px]"
         />
         <div className="w-full md:w-2/5">
           <Suspense fallback={<SkeletonCard />}>

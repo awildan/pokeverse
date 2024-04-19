@@ -3,11 +3,18 @@
 import { Search as SearchIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { Input } from "~/components/ui/input";
-import React from "react";
+import React, { useContext } from "react";
+import { FilterContex } from "~/lib/contex/filter-wrapper";
 
 const Search = () => {
   const path = usePathname();
   const isNotHome = path.split("/")[1] !== "";
+
+  const { filter, setFilter } = useContext(FilterContex);
+
+  const handleChangeSearch = (val: string) => {
+    console.log("val search", val);
+  };
 
   return (
     !isNotHome && (

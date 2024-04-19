@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
+import Header from "~/components/header";
+import { ApolloWrapper } from "~/lib/graphql/apollo-wrapper";
 
-const inter = Inter({ subsets: ["latin"] });
+const sourceSans = Source_Sans_3({
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${sourceSans.className} bg-background text-foreground`}>
+        <ApolloWrapper>
+          <Header />
+          {children}
+        </ApolloWrapper>
+      </body>
     </html>
   );
 }
+

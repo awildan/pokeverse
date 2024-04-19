@@ -9,15 +9,40 @@ const sourceSans = Source_Sans_3({
   subsets: ["latin"],
 });
 
+const imageOg =
+  "https://firebasestorage.googleapis.com/v0/b/portfolio-73414.appspot.com/o/Og%20Image%2Fpokeverse.png?alt=media&token=f4622fc7-acd5-4a31-b7de-4d6efa6aff8c";
+const description = "Your digital safari into the wild realms of Pokémon! 🌟";
+
 export const metadata: Metadata = {
-  title: "PokéVerse",
-  description: "Your digital safari into the wild realms of Pokémon! 🌟",
+  title: "PokéVerse by Awil",
+  description: description,
+  alternates: {
+    canonical: "/",
+  },
   keywords: ["pokeverse", "pokedex", "pokemon"],
   openGraph: {
     type: "website",
-    images: "/logo.png",
+    images: [
+      {
+        url: imageOg,
+        width: 800,
+        height: 600,
+      },
+      {
+        url: imageOg,
+        width: 1800,
+        height: 1600,
+        alt: "PokéVerse",
+      },
+    ],
     title: "PokéVerse",
-    description: "Your digital safari into the wild realms of Pokémon! 🌟",
+    description: description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PokéVerse by Awil",
+    description: description,
+    images: [imageOg],
   },
 };
 

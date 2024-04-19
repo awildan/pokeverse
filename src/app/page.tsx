@@ -2,10 +2,8 @@ import FilterWrapper from "~/lib/contex/filter-wrapper";
 import Pokemons from "~/components/pokemons";
 import Filter from "~/components/filter";
 export default async function Home() {
-  // const FilterContex = createContext(null);
-
   return (
-    <main className="container flex flex-col min-h-svh items-center gap-4">
+    <main className="container flex flex-col items-center gap-4">
       <FilterWrapper>
         <Filter />
         {/* content wrapper */}

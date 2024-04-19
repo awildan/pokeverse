@@ -2,18 +2,22 @@
 
 import React, { useState } from "react";
 import { createContext } from "react";
+import { PER_PAGE } from "../constant";
 
-const variables: TVariable = {
-  name: "%%",
-  limit: 40,
+export const defaultVariables: TVariable = {
+  name: "",
+  limit: PER_PAGE,
   offset: 0,
 };
 
 const setFilter: React.Dispatch<React.SetStateAction<TVariable>> = () => {};
+const setLoading: React.Dispatch<React.SetStateAction<boolean>> = () => {};
 
 export const FilterContex = createContext({
-  filter: variables,
-  setFilter: setFilter,
+  filter: defaultVariables,
+  loading: false,
+  setFilter,
+  setLoading,
 });
 
 type TVariable = {
@@ -26,18 +30,15 @@ type TVariable = {
 };
 
 const FilterWrapper = ({ children }: { children: React.ReactNode }) => {
-  const variables: TVariable = {
-    name: "%%",
-    limit: 40,
-    offset: 0,
-  };
-
-  const [filter, setFilter] = useState<TVariable>(variables);
+  const [filter, setFilter] = useState<TVariable>(defaultVariables);
+  const [loading, setLoading] = useState<boolean>(false);
   return (
     <FilterContex.Provider
       value={{
         filter,
         setFilter,
+        loading,
+        setLoading,
       }}
     >
       {children}

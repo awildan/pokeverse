@@ -6,28 +6,17 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "~/components/ui/accordion";
-import { Badge } from "~/components/ui/badge";
+import FilterPokemonTypes from "~/components/filter/pokemon-types";
 
 const Filter = () => {
   return (
-    <Accordion type="single" collapsible className="w-full md:w-3/4">
+    <Accordion type="single" collapsible className="w-full md:w-3/4 ">
       <AccordionItem value="item-1">
-        <AccordionTrigger className="hover:no-underline">
+        <AccordionTrigger className="hover:no-underline search-accordion">
           <Search />
         </AccordionTrigger>
-        <AccordionContent className="space-x-1">
-          <Badge variant="default" className="capitalize cursor-pointer">
-            fire
-          </Badge>
-          <Badge variant="default" className="capitalize cursor-pointer">
-            water
-          </Badge>
-          <Badge variant="default" className="capitalize cursor-pointer">
-            lightning
-          </Badge>
-          <Badge variant="default" className="capitalize cursor-pointer">
-            poison
-          </Badge>
+        <AccordionContent className="flex gap-2 flex-wrap justify-center border-none">
+          <FilterPokemonTypes />
         </AccordionContent>
       </AccordionItem>
     </Accordion>

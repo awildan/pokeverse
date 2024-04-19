@@ -21,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sourceSans.className} bg-background text-foreground`}>
+      <body
+        className={`${sourceSans.className} bg-background text-foreground min-h-svh `}
+      >
         <ApolloWrapper>
           <Header />
           {children}

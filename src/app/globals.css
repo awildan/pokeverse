@@ -57,3 +57,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+.search-accordion .lucide {
+  display: none;
+}
+

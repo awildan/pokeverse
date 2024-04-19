@@ -1,6 +1,6 @@
 "use client";
 
-import { useQuery } from "@apollo/client";
+import { NetworkStatus, useQuery } from "@apollo/client";
 import React, { useContext, useEffect, useState } from "react";
 import { IPokemon } from "~/interfaces/pokemon";
 import { GET_POKEMONS } from "~/lib/graphql/queries/pokemons";
@@ -10,11 +10,20 @@ import { FilterContex } from "~/lib/contex/filter-wrapper";
 import { PER_PAGE } from "~/lib/constant";
 
 const Pokemons = () => {
-  const { filter, setFilter } = useContext(FilterContex);
+  const { filter, setFilter, setLoading } = useContext(FilterContex);
   const [pokemons, setPokemons] = useState<IPokemon[]>([]);
+  const [isStopScroll, setIsStopScroll] = useState<boolean>(false);
 
-  const { loading, error, data } = useQuery(GET_POKEMONS, {
-    variables: filter,
+  const {
+    loading: loadData,
+    error,
+    data,
+    networkStatus,
+  } = useQuery(GET_POKEMONS, {
+    variables: {
+      ...filter,
+      name: `%${filter.name}%`,
+    },
     notifyOnNetworkStatusChange: true,
   });
 
@@ -22,7 +31,8 @@ const Pokemons = () => {
     const element = document.documentElement;
     if (
       window.innerHeight + element.scrollTop === element.offsetHeight &&
-      !loading
+      !loadData &&
+      !isStopScroll
     ) {
       setFilter((prev) => ({
         ...prev,
@@ -33,17 +43,31 @@ const Pokemons = () => {
   };
 
   useEffect(() => {
-    if (data !== undefined) {
+    if (data !== undefined && data.pokemon_v2_pokemon.length < PER_PAGE) {
+      setIsStopScroll(true);
+    }
+
+    if (data !== undefined && filter.offset === 0) {
+      setPokemons(data.pokemon_v2_pokemon);
+    } else if (data !== undefined && filter.offset > 0) {
       setPokemons((prev) => [...prev, ...data.pokemon_v2_pokemon]);
     }
-  }, [data]);
+  }, [data, filter.offset]);
+
+  useEffect(() => {
+    if (networkStatus === NetworkStatus.loading) {
+      setLoading(networkStatus === NetworkStatus.loading);
+    } else {
+      setLoading(false);
+    }
+  }, [networkStatus, setLoading]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
-  if (loading && filter.offset === 0) return <SkeletonGroup />;
+  if (loadData && filter.offset === 0) return <SkeletonGroup />;
   if (error) return `Error! ${error.message}`;
 
   return (
@@ -53,7 +77,7 @@ const Pokemons = () => {
           <SimpleCard key={data.id} data={data} />
         </Link>
       ))}
-      {loading && filter.offset !== 0 && <SkeletonGroup />}
+      {loadData && filter.offset !== 0 && <SkeletonGroup />}
     </>
   );
 };

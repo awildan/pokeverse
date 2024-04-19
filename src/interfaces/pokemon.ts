@@ -5,7 +5,7 @@ export interface IPokemon {
   pokemon_v2_pokemonsprites: IPokemonSprites[];
 }
 
-interface IPType {
+export interface IPType {
   id: number;
   name: string;
 }

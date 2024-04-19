@@ -1,17 +1,11 @@
 import Link from "next/link";
 import React from "react";
+import Logo from "~/components/header/logo";
 
 const Header = () => {
   return (
     <header className="container flex flex-col h-40 items-center justify-evenly">
-      <Link href="/">
-        <h2 className="flex items-center text-4xl font-extrabold cursor-pointer select-none">
-          Poké
-          <span className="dark:bg-foreground dark:text-primary text-white bg-primary px-0.5">
-            Verse
-          </span>
-        </h2>
-      </Link>
+      <Logo />
       {/* <Button variant="outline">About</Button> */}
       {/* <p>Made with love by Awil</p> */}
     </header>

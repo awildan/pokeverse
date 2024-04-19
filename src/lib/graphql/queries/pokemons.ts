@@ -33,40 +33,6 @@ export const GET_POKEMONS = gql`
   }
 `;
 
-/*
-
-  pokemon_v2_pokemonmoves_aggregate {
-    aggregate {
-      count
-    }
-  }
-  pokemon_v2_pokemonmoves {
-    id
-    pokemon_v2_move {
-      id
-      name
-    }
-  }
-  pokemon_v2_evolutionchain {
-    id
-    pokemon_v2_pokemonspecies {
-      id
-      name
-      evolution_chain_id
-      evolves_from_species_id
-      pokemon_v2_pokemons(limit: 1) {
-        id
-        name
-        pokemon_v2_pokemonsprites {
-          sprites(path: "other.dream_world.front_default")
-          id
-        }
-      }
-    }
-  }
-  
-*/
-
 export const GET_POKEMON_DETAIL = gql`
   query pokemon($name: String) {
     pokemon_v2_pokemon(where: { name: { _eq: $name } }) {
@@ -154,6 +120,15 @@ export const GET_EVOLUTION_POKEMON = gql`
           }
         }
       }
+    }
+  }
+`;
+
+export const GET_POKEMON_TYPES = gql`
+  query pokemon_type {
+    pokemon_v2_type {
+      id
+      name
     }
   }
 `;

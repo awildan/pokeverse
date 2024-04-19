@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PokéVerse
+
+Embark on a digital safari with PokeVerse, where the vibrant world of Pokémon comes alive through the power of GraphQL. This ReactJS and NextJS-powered app is your portal to a universe brimming with pocket monsters, all at your fingertips.
+
+## Features
+
+- **Interactive Pokédex**: Seamlessly query for Pokémon data with GraphQL's.
+- **Evolution Pathways**: Visualize your Pokémon's growth journey.
+- **Pokemon Stats**: Check the stats of each Pokémon, including **HP**, **Attack**, **Defense**, and other vital statistics.
+
+## Technologies
+
+- [**ReactJS**](https://react.dev/reference/react)
+- [**NextJS**](https://nextjs.org/docs)
+- [**PokeApi**](https://pokeapi.co/docs/graphql)
+
+## Requirements
+
+- **Next.js**: Version `14`
+- **Node.js**: Version `v18.17.1` or latest
+- **npm**: Version `9.6.7` or latest
 
 ## Getting Started
 
-First, run the development server:
+To set up your local development environment:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```sh
+   git clone https://github.com/awildan/pokeverse.git
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Install dependencies
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```console
+   npm install
+   ```
 
-## Learn More
+3. Start the development server
 
-To learn more about Next.js, take a look at the following resources:
+   ```console
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Preview
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Check out the live preview of PokeVerse: [PokeVerse Preview](https://pokeverse-awil.vercel.app/)
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Your contributions are welcome! Whether it’s bug fixes, new features, or improvements to the documentation, we appreciate your help in making PokeVerse even better.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Fork the Project
+2. Create your Feature Branch (git checkout -b feature/YourFeature)
+3. Commit your Changes (git commit -m 'Add YourFeature')
+4. Push to the Branch (git push origin feature/YourFeature)
+5. Open a Pull Request
+
+## License
+
+This project is open-sourced under the MIT License.
+
+## Contact
+
+Awil - [Linkedin](https://www.linkedin.com/in/awildanf/)
+
+Project Link: https://github.com/awildan/pokeverse.git
+

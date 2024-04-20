@@ -1,6 +1,6 @@
 # PokéVerse
 
-Embark on a digital safari with PokeVerse, where the vibrant world of Pokémon comes alive through the power of GraphQL. This ReactJS and NextJS-powered app is your portal to a universe brimming with pocket monsters, all at your fingertips.
+Embark on a digital safari with PokeVerse, where the vibrant world of Pokémon comes alive. This ReactJS and NextJS-powered app is your portal to a universe brimming with pocket monsters, all at your fingertips.
 
 ## Features
 

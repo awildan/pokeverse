@@ -30,7 +30,7 @@ const Pokemons = () => {
   const handleScroll = () => {
     const element = document.documentElement;
     if (
-      window.innerHeight + element.scrollTop === element.offsetHeight &&
+      window.innerHeight + element.scrollTop >= element.offsetHeight - 1 &&
       !loadData &&
       !isStopScroll
     ) {
